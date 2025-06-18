@@ -49,7 +49,7 @@ $routes->group('admin', ['filter' => 'jwt:admin'], function ($routes) {
     // ROUTES USER
     $routes->get('users', 'UsersController::index');
     $routes->get('users/(:num)', 'UsersController::show/$1');
-    $routes->get('search', 'UsersController::search');
+    $routes->get('users/search', 'UsersController::search');
     $routes->post('users', 'UsersController::create');
     $routes->put('users/(:num)', 'UsersController::update/$1');
     $routes->delete('users/(:num)', 'UsersController::delete/$1');
