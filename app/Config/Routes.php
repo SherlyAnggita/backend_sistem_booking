@@ -60,9 +60,9 @@ $routes->group('admin', ['filter' => 'jwt:admin'], function ($routes) {
 $routes->group('mahasiswa', ['filter' => 'jwt:mahasiswa'], function ($routes) {
      $routes->get('mahasiswa', 'MahasiswaController::index');
     $routes->get('mahasiswa/(:num)', 'MahasiswaController::show/$1');
-    $routes->post('mahasiswa', 'MahasiswaController::create');
-    $routes->put('mahasiswa/(:num)', 'MahasiswaController::update/$1');
-    $routes->delete('mahasiswa/(:num)', 'MahasiswaController::delete/$1');
+    // $routes->post('mahasiswa', 'MahasiswaController::create');
+    // $routes->put('mahasiswa/(:num)', 'MahasiswaController::update/$1');
+    // $routes->delete('mahasiswa/(:num)', 'MahasiswaController::delete/$1');
 
 //JADWAL KONSULTASI(lihat aja)
     $routes->get('lihatJadwal', 'JadwalKonsultasiController::index');
@@ -81,9 +81,9 @@ $routes->group('dosen', ['filter' => 'jwt:dosen'], function ($routes) {
     // LIHAT DATA DIRINYA (opsional)
     $routes->get('dosen', 'DosenController::index'); // kalau ingin lihat semua dosen
     $routes->get('dosen/(:num)', 'DosenController::show/$1'); // lihat profil spesifik
-    $routes->post('dosen', 'DosenController::create');
-    $routes->put('dosen/(:num)', 'DosenController::update/$1');
-    $routes->delete('dosen/(:num)', 'DosenController::delete/$1');
+    // $routes->post('dosen', 'DosenController::create');
+    // $routes->put('dosen/(:num)', 'DosenController::update/$1');
+    // $routes->delete('dosen/(:num)', 'DosenController::delete/$1');
 
     // KONSULTASI (lihat & edit saja)
     $routes->get('konsultasi', 'KonsultasiController::index');
