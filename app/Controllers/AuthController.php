@@ -48,7 +48,7 @@ class AuthController extends ResourceController
 
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        // ✅ Tambahan: generate token & set verifikasi
+        //  token & set verifikasi
         $token = bin2hex(random_bytes(32));
 
         $this->userModel->insert([
@@ -60,7 +60,7 @@ class AuthController extends ResourceController
             'is_verified'  => false // Tambahan field verifikasi
         ]);
 
-        // Tambahan: Kirim email verifikasi
+        // Kirim email verifikasi
         $emailService = \Config\Services::email();
         $emailService->setFrom('backendpbf@gmail.com', 'Verifikasi Email Konsultasi Dosen');
         $emailService->setTo($email);
@@ -73,7 +73,7 @@ class AuthController extends ResourceController
             return $this->failServerError($emailService->printDebugger(['headers']));
         }
 
-        // ✅ Tetap tampilkan output versi kamu
+        // tampilkan output 
         return $this->respondCreated([
             'message' => 'User berhasil didaftarkan. Silakan cek email untuk verifikasi.',
             'user' => [

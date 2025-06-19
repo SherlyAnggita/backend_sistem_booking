@@ -14,7 +14,7 @@ $routes->post('auth/login', 'AuthController::login');
 
 //ROUTES ADMIN
 $routes->group('admin', ['filter' => 'jwt:admin'], function ($routes) {
-    // ROUTES DOSEN START
+    // ROUTES DOSEN START+
     $routes->get('dosen', 'DosenController::index');
     $routes->get('dosen/(:num)', 'DosenController::show/$1');
     $routes->post('dosen', 'DosenController::create');
@@ -61,7 +61,7 @@ $routes->group('admin', ['filter' => 'jwt:admin'], function ($routes) {
 $routes->group('mahasiswa', ['filter' => 'jwt:mahasiswa'], function ($routes) {
      $routes->get('mahasiswa', 'MahasiswaController::index');
     $routes->get('mahasiswa/(:num)', 'MahasiswaController::show/$1');
-    // $routes->post('mahasiswa', 'MahasiswaController::create');
+    $routes->post('mahasiswa', 'MahasiswaController::create');
     // $routes->put('mahasiswa/(:num)', 'MahasiswaController::update/$1');
     // $routes->delete('mahasiswa/(:num)', 'MahasiswaController::delete/$1');
 
@@ -84,7 +84,7 @@ $routes->group('dosen', ['filter' => 'jwt:dosen'], function ($routes) {
     $routes->get('dosen/(:num)', 'DosenController::show/$1'); // lihat profil spesifik
     // $routes->post('dosen', 'DosenController::create');
     // $routes->put('dosen/(:num)', 'DosenController::update/$1');
-    // $routes->delete('dosen/(:num)', 'DosenController::delete/$1');
+    $routes->delete('dosen/(:num)', 'DosenController::delete/$1');
 
     // KONSULTASI (lihat & edit saja)
     $routes->get('konsultasi', 'KonsultasiController::index');
@@ -96,7 +96,7 @@ $routes->group('dosen', ['filter' => 'jwt:dosen'], function ($routes) {
     $routes->get('jadwal_konsultasi/(:num)', 'JadwalKonsultasiController::show/$1');
     $routes->post('jadwal_konsultasi', 'JadwalKonsultasiController::create');
     $routes->put('jadwal_konsultasi/(:num)', 'JadwalKonsultasiController::update/$1');
-    $routes->delete('jadwal_konsultasi/(:num)', 'JadwalKonsultasiController::delete/$1');
+    // $routes->delete('jadwal_konsultasi/(:num)', 'JadwalKonsultasiController::delete/$1');
     
 });
 
